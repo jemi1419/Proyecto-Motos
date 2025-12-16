@@ -120,10 +120,6 @@
                 </div>
 
                 <div class="carousel-item">
-                    <img src="img/dgeti.png" class="d-block w-90" alt="Imagen 2">
-                </div>
-
-                <div class="carousel-item">
                     <img src="img/yama.jpg" class="d-block w-100" alt="Imagen 3">
                 </div>
 
