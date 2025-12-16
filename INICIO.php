@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plantilla 2</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+
+<style>
+  body 
+  {
+    font-family: cursive;
+  }
+</style>
+
+<body class="bg-dark text-white fst-italic">
+    <?php
+        $conexion = new mysqli('localhost', 'root', '', 'login', '3306');
+        $consulta = "SELECT * FROM actu ORDER BY idU ASC LIMIT 1";
+        $resultado = $conexion->query($consulta);
+        $fila = $resultado->fetch_assoc();
+        $us = $fila['us'];
+        $ps = $fila['pas'];
+        if ( $us == "admin" && $ps =="123" )
+        {
+            ?>
+            <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="INICIO.php">Inicio</a>
+                    <a class="navbar-brand" href="Practicas.php">Prácticas Seguras de Conducción</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="cascos.php">Tipos de Cascos</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="normas.php">Normativa y Reglamento Vial</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Mas</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="Accidentes.php">Accidentes en Motocicleta</a></li>
+                            <li><a class="dropdown-item" href="FAQ.php">Preguntas Frecuentes (FAQ)</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="Compromiso.php">Vista Contacto / Compromiso de Conducción Segura</a></li>
+                            <li><a class="dropdown-item" href="#">Lista de Usuarios</a></li>
+                        </ul>
+                        </li>
+                        </ul>
+                        <div class="d-flex ms-auto">
+                            <a href="logout.php" class="btn btn-danger btn-sm me-3">Cerrar sesión</a>
+                            <span class="navbar-text text-white">
+                                Usuario: <?php echo $us; ?>
+                            </span>
+                        </div>
+
+                    </div>
+                </div>
+            </nav>
+            <?php
+        }
+        else
+        {
+            ?>
+            <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+                <div class="container-fluid">
+                <a class="navbar-brand" href="INICIO.php">Inicio</a>
+                    <a class="navbar-brand" href="Practicas.php">Prácticas Seguras de Conducción</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="cascos.php">Tipos de Cascos</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="normas.php">Normativa y Reglamento Vial</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Mas</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="Accidentes.php">Accidentes en Motocicleta</a></li>
+                            <li><a class="dropdown-item" href="FAQ.php">Preguntas Frecuentes (FAQ)</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="Compromiso.php">Vista Contacto / Compromiso de Conducción Segura</a></li>
+                        </ul>
+                        </li>
+                    </ul>
+                    <div class="d-flex ms-auto">
+                            <a href="logout.php" class="btn btn-danger btn-sm me-3">Cerrar sesión</a>
+                            <span class="navbar-text text-white">
+                                Usuario: <?php echo $us; ?>
+                            </span>
+                        </div>
+                    </div>            
+                </div>
+            </nav>
+            <?php
+        }
+        $conexion->close();
+    ?>
+
+    <header class="container-fluid bg-secondary text-white p-5 mb-5">
+        <h1 class="text-center">“RINOS EN MOVIMIENTO: RESPONSABILIDAD SOBRE RUEDAS”</h1>
+    </header>
+
+    <div class="container mb-5">
+        <div id="carouselExample" class="carousel slide">
+
+            <div class="carousel-inner">
+
+                <div class="carousel-item active">
+                    <img src="img/yama.jpg" class="d-block w-100" alt="Imagen 1">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="img/dgeti.png" class="d-block w-90" alt="Imagen 2">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="img/yama.jpg" class="d-block w-100" alt="Imagen 3">
+                </div>
+
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+                <span class="visually-hidden">Siguiente</span>
+            </button>
+
+        </div>
+    </div>
+
+    
+    <section class="container bg-secondary text-white p-4 mb-5 rounded shadow">
+        <h2 class="text-center mb-3">OBJETIVO</h2>
+        <p>
+            El alumno programará módulos web informativos y
+            administrativos que promuevan prácticas seguras de
+            conducción, integrando frontend y backend mediante
+            tecnologías HTML, CSS, Bootstrap, JavaScript y PHP.
+        </p>
+    </section>
+
+    <footer class="bg-black text-white p-3 text-center">
+        © 2025 - Pie de página | Tu sitio web
+    </footer>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
